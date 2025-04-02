@@ -31,6 +31,19 @@ impl Sync {
         }
     }
 
+    pub async fn check_remote_access(&self) -> Result<()> {
+        let response = self.client
+            .head(&self.config.url)
+            .header("Authorization", self.get_auth_header())
+            .send()
+            .await?;
+
+        if !response.status().is_success() {
+            return Err(format!("Failed to access remote: {}", response.status()).into());
+        }
+        Ok(())
+    }
+
     pub async fn push(&self) -> Result<()> {
         let url = &self.config.url;
         
