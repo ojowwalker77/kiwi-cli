@@ -1,0 +1,22 @@
+[package]
+name = "kiwi"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jonatas Walker Filho <jonatasswwalker@gmail.com>"]
+description = "A CLI tool for managing macOS environment, dotfiles, and system configurations"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5.3", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+tokio = { version = "1.36", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+dirs = "5.0"
+log = "0.4"
+env_logger = "0.11"
+colored = "2.1"
+dialoguer = "0.11"
+dotenv = "0.15"
